@@ -1,14 +1,24 @@
-import React, { useContext } from "react";
-import { ThemeContext } from "../context/ThemeContext";
+import React from "react";
+import { useTheme } from "../context/ThemeContext";
 
 export default function Header() {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme, toggleTheme } = useTheme();
 
   return (
-    <header className="header">
-      <h2>Mini Movie Manager</h2>
-      <button onClick={toggleTheme} className="theme-toggle-btn">
-        {theme === "light" ? "🌙 Dark" : "☀️️ Light"}
+    <header
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        marginBottom: "20px",
+      }}
+    >
+      <h2>Movie Management System</h2>
+      <button
+        onClick={toggleTheme}
+        style={{ padding: "8px 12px", cursor: "pointer" }}
+      >
+        Switch to {theme === "light" ? "Dark" : "Light"} Mode
       </button>
     </header>
   );

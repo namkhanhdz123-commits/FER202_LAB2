@@ -1,18 +1,16 @@
-import React, { useRef } from "react";
+import React from "react";
 
-const SearchBar = ({ onSearch }) => {
-  const inputRef = useRef(null);
+export default function SearchBar({ searchInputRef, onSearchChange }) {
   return (
-    <div className="container mt-4">
+    <div style={{ margin: "15px 0" }}>
+      <label>Search Movie: </label>
       <input
-        ref={inputRef}
         type="text"
-        className="form-control form-control-lg"
-        placeholder="tìm tên phim......."
-        onChange={(e) => onSearch(e.target.value)}
+        ref={searchInputRef}
+        onChange={onSearchChange}
+        placeholder="Search by title..."
+        style={{ padding: "6px", width: "250px" }}
       />
     </div>
   );
-};
-
-export default SearchBar;
+}
